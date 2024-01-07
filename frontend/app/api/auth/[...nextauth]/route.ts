@@ -4,11 +4,11 @@ import GithubProvider from "next-auth/providers/github";
 
 export const authOptions = {
     providers: [
-        
-        
         GoogleProvider({
-            clientId: process.env.GOOGLE_ID as string,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+            // @ts-expect-error
+            clientId: process.env.GOOGLE_ID,
+            // @ts-expect-error
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         }),
         
 
