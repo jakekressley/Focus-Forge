@@ -1,6 +1,8 @@
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
+import { MongoDBAdapter } from '@auth/mongodb-adapter';
+import clientPromise from "../../../../lib/mongodb";
 
 export const authOptions = {
     providers: [
@@ -8,7 +10,7 @@ export const authOptions = {
             // @ts-expect-error
             clientId: process.env.GOOGLE_ID,
             // @ts-expect-error
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+            clientSecret: process.env.GOOGLE_SECRET,
         }),
         
 
@@ -17,8 +19,10 @@ export const authOptions = {
             clientSecret: process.env.GITHUB_CLIENT_SECRET ?? "",
         })
     ],
+    adapter: MongoDBAdapter(clientPromise),
 };
 
+// @ts-expect-error
 export const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST }
