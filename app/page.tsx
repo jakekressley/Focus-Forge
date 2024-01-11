@@ -1,6 +1,6 @@
 import Image from 'next/image'
 // this should probably be the login page
-import Form from '../components/Form'
+import Form from '@/components/Form';
 import { Provider } from 'react-redux'
 import { getServerSession } from 'next-auth'
 
