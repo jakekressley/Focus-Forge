@@ -2,9 +2,9 @@ import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
 import { MongoDBAdapter } from '@auth/mongodb-adapter';
-import clientPromise from "../../../../../frontend/lib/mongodb";
+import clientPromise from "@/lib/mongodb";
 
-export const authOptions = {
+const authOptions = {
     providers: [
         GoogleProvider({
             // @ts-expect-error
@@ -23,6 +23,6 @@ export const authOptions = {
 };
 
 
-export const handler = NextAuth(authOptions);
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST }

@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
-import Timer from '../../../frontend/components/timer/Timer'
-import PomodoroTimer from '../../../frontend/components/timer/PomodoroTimer'
+import Timer from '@/components/timer/Timer'
+import PomodoroTimer from '@/components/timer/PomodoroTimer'
 import { Tab } from '@headlessui/react'
 
 const Study = () => {
