@@ -19,10 +19,10 @@ export const authOptions = {
             clientSecret: process.env.GITHUB_CLIENT_SECRET ?? "",
         })
     ],
-    adapter: MongoDBAdapter(clientPromise),
+    //adapter: MongoDBAdapter(clientPromise),
 };
 
-// @ts-expect-error
+
 export const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST }

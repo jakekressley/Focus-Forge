@@ -27,7 +27,7 @@ export default async function RootLayout({
       </head>
       <body>
         <SessionProvider session={session}>
-          <main>
+          <main className="bg-gray-800 text-white h-screen">
             <NavMenu />
             {children}
           </main>
