@@ -24,6 +24,7 @@ export default async function RootLayout({
     <html lang="en">
       <head>
         <title>Focus Forge</title>
+        <link rel="icon" href="../public/apple-touch-icon.png" />
       </head>
       <body>
         <SessionProvider session={session}>

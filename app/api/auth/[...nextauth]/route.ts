@@ -7,11 +7,16 @@ import clientPromise from "@/lib/mongodb";
 const authOptions = {
     providers: [
         GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID??"",
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET??"",
+            clientId: process.env.GOOGLE_CLIENT_ID as string,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+            authorization: {
+                params: {
+                  prompt: "consent",
+                  access_type: "offline",
+                  response_type: "code"
+                }
+              }
         }),
-        
-
         GithubProvider({
             clientId: process.env.GITHUB_ID ?? "",
             clientSecret: process.env.GITHUB_CLIENT_SECRET ?? "",
@@ -21,6 +26,6 @@ const authOptions = {
 };
 
 
-const handler = NextAuth(authOptions)
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST }
