@@ -72,20 +72,20 @@ function PomodoroTimer({ focusTime, shortBreak, longBreak, longBreakFrequency }:
 
     return (
         <div>
-        <p>Session Duration: {focusTime} minutes</p>
-        <p>Short Break Duration: {shortBreak} minutes</p>
-        <p>Long Break Duration: {longBreak} minutes</p>
-        <p>Long Break Frequency: {longBreakFrequency} sessions</p>
-        <p>Short Break Counter: {shortBreakCounter}</p>
-        <p>Total Session Counter: {totalSessionCounter}</p>
-        <p>Session Duration: {minutes} : {String(seconds).padStart(2, '0')}</p>
-            <button>
+            <p>Session Duration: {focusTime} minutes</p>
+            <p>Short Break Duration: {shortBreak} minutes</p>
+            <p>Long Break Duration: {longBreak} minutes</p>
+            <p>Long Break Frequency: {longBreakFrequency} sessions</p>
+            <p>Short Break Counter: {shortBreakCounter}</p>
+            <p>Total Session Counter: {totalSessionCounter}</p>
+            <p>Session Duration: {minutes} : {String(seconds).padStart(2, '0')}</p>
+            <div>
                 {isActive ? (
                     <button onClick={handlePause}>Pause</button>
                 ) : (
                     <button onClick={handleStart}>Start</button>
                 )}
-            </button>
+            </div>
             <button onClick={handleReset}>Reset</button>
         </div>
     )

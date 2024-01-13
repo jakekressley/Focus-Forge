@@ -44,14 +44,15 @@ const Timer = () => {
             <p>Session Duration:
                 {hours > 0 && `${hours} : `}
                 {(hours > 0 || minutes > 0) ? `${totalSeconds >= 600 ? String(minutes).padStart(2, '0') : minutes} : ` : ""}
-                {totalSeconds > 9 ? String(seconds).padStart(2, '0') : seconds}</p>
-            <button>
+                {totalSeconds > 9 ? String(seconds).padStart(2, '0') : seconds}
+            </p>
+            <div>
                 {isActive ? (
                     <button onClick={handlePause}>Pause</button>
                 ) : (
                     <button onClick={handleStart}>Start</button>
                 )}
-            </button>
+            </div>
             <button onClick={handleReset}>Reset</button>
         </div>
     );

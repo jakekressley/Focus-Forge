@@ -21,6 +21,7 @@ const Study = () => {
             <Timer />
           </Tab.Panel>
           <Tab.Panel>
+            <input name="focus-time" type="number" min="1" defaultValue={25}/>
             <PomodoroTimer 
               focusTime={5}
               shortBreak={3}
