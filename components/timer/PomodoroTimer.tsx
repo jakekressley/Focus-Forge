@@ -72,7 +72,7 @@ function PomodoroTimer({ focusTime, shortBreak, longBreak, longBreakFrequency }:
 
     return (
         <div>
-            <p>Session Duration: {focusTime} minutes</p>
+            <p>Session Duration: <span key={focusTime}>{focusTime}</span> minutes</p>
             <p>Short Break Duration: {shortBreak} minutes</p>
             <p>Long Break Duration: {longBreak} minutes</p>
             <p>Long Break Frequency: {longBreakFrequency} sessions</p>
