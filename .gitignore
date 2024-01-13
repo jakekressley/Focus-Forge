@@ -38,3 +38,5 @@ next-env.d.ts
 
 server/.env
 frontend/.env
+
+app/api/auth/[...nextauth]/route.ts
