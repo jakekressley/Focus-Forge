@@ -40,4 +40,4 @@ server/.env
 frontend/.env
 
 app/api/auth/[...nextauth]/.env
-app/api/auth/[...nextauth]/*
+app/api/auth/[...nextauth]/*.ts
