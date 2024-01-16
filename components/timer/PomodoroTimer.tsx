@@ -3,13 +3,14 @@
 import { useState, useEffect } from 'react'
 import { PomodoroTypes } from '@/types'
 
-function PomodoroTimer({ focusTime, shortBreak, longBreak, longBreakFrequency }:PomodoroTypes) {
+function PomodoroTimer({ focusTime, shortBreak, longBreak, longBreakFrequency, }:PomodoroTypes) {
     const [minutes, setMinutes] = useState(focusTime);
     const [shortBreakCounter, setShortBreakCounter] = useState(0);
     const [seconds, setSeconds] = useState(0);
     const [isActive, setIsActive] = useState(false);
     const [isBreak, setIsBreak] = useState(false);
     const [totalSessionCounter, setTotalSessionCounter] = useState(0);
+
 
     useEffect(() => {
         let interval: NodeJS.Timeout;
@@ -30,8 +31,8 @@ function PomodoroTimer({ focusTime, shortBreak, longBreak, longBreakFrequency }:
                             let newShortBreakCounter = shortBreakCounter + 1;
                             setShortBreakCounter(newShortBreakCounter);
                             setTotalSessionCounter(totalSessionCounter + 1);
-
-                            if (newShortBreakCounter === longBreakFrequency) {
+                            if (newShortBreakCounter == longBreakFrequency) {
+                                console.log("condition passed")
                                 setShortBreakCounter(0);
                                 setMinutes(longBreak);
                                 setIsBreak(true);
@@ -70,6 +71,13 @@ function PomodoroTimer({ focusTime, shortBreak, longBreak, longBreakFrequency }:
         setSeconds(0);
     };
 
+    const handleForward = () => {
+        setMinutes(0);
+        setSeconds(0);
+    }
+
+    //handleReset();
+
     return (
         <div>
             <p>Session Duration: <span key={focusTime}>{focusTime}</span> minutes</p>
@@ -86,6 +94,8 @@ function PomodoroTimer({ focusTime, shortBreak, longBreak, longBreakFrequency }:
                     <button onClick={handleStart}>Start</button>
                 )}
             </div>
+            <button onClick={handleForward}>Fast Forward</button>
+            <br />
             <button onClick={handleReset}>Reset</button>
         </div>
     )

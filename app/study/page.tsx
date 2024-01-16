@@ -3,16 +3,42 @@ import React, { SyntheticEvent } from 'react'
 import Timer from '@/components/timer/Timer'
 import PomodoroTimer from '@/components/timer/PomodoroTimer'
 import { Tab } from '@headlessui/react'
+import { useEffect } from 'react'
 
 const Study = () => {
   const styles = 'cursor-pointer underline'
 
   const [focusTime, setFocusTime] = React.useState(25);
+  const [shortBreakTime, setShortBreakTime] = React.useState(5);
+  const [longBreakTime, setLongBreakTime] = React.useState(20);
+  const [longBreakFrequency, setLongBreakFrequency] = React.useState(4);
+  
   //@ts-expect-error
-  const handleInputChange = (e) => {
+  const handleFocusTimeChange = (e) => {
     const newInput = e.target.value;
     setFocusTime(newInput);
   }
+
+  //@ts-expect-error
+  const handleShortBreakChange = (e) => {
+    const newInput = e.target.value;
+    setShortBreakTime(newInput);
+  }
+
+  //@ts-expect-error
+  const handleLongBreakChange = (e) => {
+    const newInput = e.target.value;
+    setLongBreakTime(newInput);
+  }
+
+  //@ts-expect-error
+  const handleFreqChange = (e) => {
+    const newInput = e.target.value;
+    setLongBreakFrequency(newInput);
+  }
+
+  useEffect(() => {
+  }, [focusTime, shortBreakTime])
 
   return (
     <React.Fragment>
@@ -29,14 +55,42 @@ const Study = () => {
             <Timer />
           </Tab.Panel>
           <Tab.Panel>
-            <input name="focus-time" type="number" min="1" defaultValue={25}
+            <label htmlFor="focus-time">Focus duration: </label>
+            <input name="focus-time" type="number" min="1" defaultValue={25} id="focus-time"
             className="text-white bg-gray-800 border border-white rounded p-1 w-[70px] text-center"
+            onChange={handleFocusTimeChange}
             />
+
+            <br />
+
+            <label htmlFor="short-break">Short Break Duration: </label>
+            <input name="short-break" type="number" min="1" defaultValue={5} id="short-break"
+            className="text-white bg-gray-800 border border-white rounded p-1 w-[70px] text-center"
+            onChange={handleShortBreakChange}
+            />
+
+            <br />
+            
+            <label htmlFor="long-break">Long Break Duration: </label>
+            <input name="long-break" type="number" min="1" defaultValue={20} id="long-break"
+            className="text-white bg-gray-800 border border-white rounded p-1 w-[70px] text-center"
+            onChange={handleLongBreakChange}
+            />
+
+            <br />
+            
+            <label htmlFor="break-freq">Long Break Frequency: </label>
+            <input name="break-freq" type="number" defaultValue={4} id="break-freq"
+            className="text-white bg-gray-800 border border-white rounded p-1 w-[70px] text-center"
+            onChange={handleFreqChange}
+            />
+            <label htmlFor="break-freq">(zero if you do not want any long breaks)</label>
+
             <PomodoroTimer
               focusTime={focusTime}
-              shortBreak={3}
-              longBreak={15}
-              longBreakFrequency={4}
+              shortBreak={shortBreakTime}
+              longBreak={longBreakTime}
+              longBreakFrequency={longBreakFrequency}
             />
           </Tab.Panel>
         </Tab.Panels>
