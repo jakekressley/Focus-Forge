@@ -2,6 +2,10 @@
 "use client"
 import { useState, useEffect } from 'react'
 import { PomodoroTypes } from '@/types'
+import connectToDatabase from "../../mongo";
+import { ObjectId } from "mongodb";
+const { MongoClient } = require('mongodb');
+//import { updateExperience } from '@/components/experience/Experience'
 
 function PomodoroTimer({ focusTime, shortBreak, longBreak, longBreakFrequency, }:PomodoroTypes) {
     const [minutes, setMinutes] = useState(focusTime);
@@ -76,6 +80,20 @@ function PomodoroTimer({ focusTime, shortBreak, longBreak, longBreakFrequency, }
         setSeconds(0);
     }
 
+    // make this a headlessui modal
+   const handleSessionEnd = () => {
+    /*
+        const db = await connectToDatabase();
+        const collection = db.collection("users");
+    
+        const result = await collection.updateOne(
+        { _id: new ObjectId(userId) },
+        { $inc: { experience: amount } } // Increment the 'experience' field by 1
+        );
+        */
+        console.log("Session ended");
+    }
+
     //handleReset();
 
     return (
@@ -97,6 +115,8 @@ function PomodoroTimer({ focusTime, shortBreak, longBreak, longBreakFrequency, }
             <button onClick={handleForward}>Fast Forward</button>
             <br />
             <button onClick={handleReset}>Reset</button>
+            <br />
+            <button onClick={handleSessionEnd}>End session</button>
         </div>
     )
 }
