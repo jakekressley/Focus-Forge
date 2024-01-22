@@ -4,6 +4,7 @@ import Timer from '@/components/timer/Timer'
 import PomodoroTimer from '@/components/timer/PomodoroTimer'
 import { Tab } from '@headlessui/react'
 import { useEffect } from 'react'
+import prisma from '@/lib/prisma'
 
 const Study = () => {
   const styles = 'cursor-pointer underline'
