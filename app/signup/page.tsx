@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useEffect } from "react"
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 import axios from "axios"
 
@@ -32,6 +32,7 @@ export default function SignupPage() {
             value={user.username}
             onChange={(e) => setUser({...user, username: e.target.value})}
             placeholder="username"
+            className="text-black"
             />
         <label htmlFor="email">email</label>
         <input 
@@ -40,6 +41,7 @@ export default function SignupPage() {
             value={user.email}
             onChange={(e) => setUser({...user, email: e.target.value})}
             placeholder="email"
+            className="text-black"
             />
         <label htmlFor="password">password</label>
         <input 
@@ -48,6 +50,7 @@ export default function SignupPage() {
             value={user.password}
             onChange={(e) => setUser({...user, password: e.target.value})}
             placeholder="password"
+            className="text-black"
             />
             <button onClick={onSignup}>Sign Up</button>
 
