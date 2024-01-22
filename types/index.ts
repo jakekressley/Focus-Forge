@@ -22,4 +22,6 @@ export interface UserDataTypes {
 export interface TimerButtonTypes {
     label: string;
     onClick?: () => void;
+    className?: string;
+    size?: string;
 }

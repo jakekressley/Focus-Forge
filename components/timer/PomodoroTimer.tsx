@@ -69,27 +69,44 @@ function PomodoroTimer() {
     
     //@ts-expect-error
     const handleFocusTimeChange = (e) => {
-      const newInput = parseInt(e.target.value, 10);
-      setFocusTime(newInput);
+      const newInput = e.target.value;
+      if (newInput === '') {
+        setFocusTime(25);
+      }
+      else {
+          setFocusTime(newInput);
+      }
     }
   
     //@ts-expect-error
     const handleShortBreakChange = (e) => {
       const newInput = e.target.value;
-      setShortBreakTime(newInput);
-      handleReset();
+      if (newInput === '') {
+        setShortBreakTime(5);
+      }
+      else {
+          setShortBreakTime(newInput);
+      }
     }
   
     //@ts-expect-error
     const handleLongBreakChange = (e) => {
       const newInput = e.target.value;
-      setLongBreakTime(newInput);
+      if (newInput === '') {
+        setLongBreakTime(20);
+      }
+      else 
+          setLongBreakTime(newInput);
     }
   
     //@ts-expect-error
     const handleFreqChange = (e) => {
       const newInput = e.target.value;
-      setLongBreakFrequency(newInput);
+      if (newInput === '') {
+        setLongBreakFrequency(4);
+      }
+      else
+        setLongBreakFrequency(newInput);
     }
     
     const handleStart = () => {
@@ -171,8 +188,12 @@ function PomodoroTimer() {
                 </div>
                 <TimerButton label="Fast Forward" onClick={handleForward}></TimerButton>
             </div>
-            <TimerButton label="Reset" onClick={handleReset}></TimerButton>
-            <TimerButton label="End session"></TimerButton>
+            <div className="mt-10">
+                <TimerButton label="Reset" onClick={handleReset} className="mt-6"></TimerButton>
+            </div>
+            <div className="m-10">
+                <TimerButton label="End session" size="large"></TimerButton>
+            </div>        
             <p>Short Break Counter: {shortBreakCounter}</p>
             <p>Total Session Counter: {totalSessionCounter}</p>
         </div>

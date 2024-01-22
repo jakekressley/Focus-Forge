@@ -1,6 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react";
+import { PomodoroTypes } from "@/types";
+import TimerButton from "./TimerButton";
 
 const Timer = () => {
     const [totalSeconds, setTotalSeconds] = useState(0);
@@ -40,20 +42,27 @@ const Timer = () => {
     }
 
     return (
-        <div>
-            <p>Session Duration:
-                {hours > 0 && `${hours} : `}
-                {(hours > 0 || minutes > 0) ? `${totalSeconds >= 600 ? String(minutes).padStart(2, '0') : minutes} : ` : ""}
-                {totalSeconds > 9 ? String(seconds).padStart(2, '0') : seconds}
+        <div className="flex flex-col items-center justify-center">
+            <p className="text-9xl m-10">
+                <p className="m-20">
+                    {hours > 0 && <><span className="text-9xl">{hours}</span><span className="text-4xl">h</span> : </>}
+                    {(hours > 0 || minutes > 0) ? <><span className="text-9xl">{totalSeconds >= 600 ? String(minutes).padStart(2, '0') : minutes}</span><span className="text-4xl">m</span> : </> : ""}
+                    <span className="text-9xl">{totalSeconds > 9 ? String(seconds).padStart(2, '0') : seconds}</span><span className="text-4xl">s</span>
+                </p>
             </p>
-            <div>
-                {isActive ? (
-                    <button onClick={handlePause}>Pause</button>
-                ) : (
-                    <button onClick={handleStart}>Start</button>
-                )}
+            <div className='flex justify-evenly items-center w-1/2 gap-4 m-6'>
+                <div>
+                    {isActive ? (
+                        <TimerButton label="Pause" onClick={handlePause}></TimerButton>
+                    ) : (
+                        <TimerButton label="Start" onClick={handleStart}></TimerButton>
+                    )}
+                </div>
+                <TimerButton label="Reset" onClick={handleReset}></TimerButton>
             </div>
-            <button onClick={handleReset}>Reset</button>
+            <div className="m-4">
+                <TimerButton label="End Session" size="large"></TimerButton>
+            </div>
         </div>
     );
 }
