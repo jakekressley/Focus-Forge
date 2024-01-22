@@ -18,3 +18,8 @@ export interface UserDataTypes {
     isGold: boolean;
     password?: string;
 }
+
+export interface TimerButtonTypes {
+    label: string;
+    onClick?: () => void;
+}
