@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.--input-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+/* 
+.--input-settings {
+    color: white;
+    background-color: #424242;
+    border: solid 1px white;
+    border-radius: 12px;
+    text-align: center;
+    width: 50px;
+    padding: 1rem;
+    font-size: 1rem;
+} */

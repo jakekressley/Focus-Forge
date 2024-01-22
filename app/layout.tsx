@@ -29,7 +29,7 @@ export default async function RootLayout({
         <SessionProvider session={session}>
           <main className="bg-gray-800 text-white h-screen">
             <NavMenu />
-            <div className="p-10 border border-blue-600 h-100">
+            <div className="p-10 pt-0 h-100">
               {children}
             </div>
           </main>
