@@ -43,13 +43,13 @@ const Timer = () => {
 
     return (
         <div className="flex flex-col items-center justify-center">
-            <p className="text-9xl m-10">
-                <p className="m-20">
+            <div className="text-9xl m-10">
+                <div className="m-20">
                     {hours > 0 && <><span className="text-9xl">{hours}</span><span className="text-4xl">h</span> : </>}
                     {(hours > 0 || minutes > 0) ? <><span className="text-9xl">{totalSeconds >= 600 ? String(minutes).padStart(2, '0') : minutes}</span><span className="text-4xl">m</span> : </> : ""}
                     <span className="text-9xl">{totalSeconds > 9 ? String(seconds).padStart(2, '0') : seconds}</span><span className="text-4xl">s</span>
-                </p>
-            </p>
+                </div>
+            </div>
             <div className='flex justify-evenly items-center w-1/2 gap-4 m-6'>
                 <div>
                     {isActive ? (
