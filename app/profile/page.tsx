@@ -1,39 +1,27 @@
-import React from 'react'
-import { getBalance, updateBalance } from '../../components/currency/StudyCredit'
-import { ObjectId } from 'mongodb';
-import clientPromise from '@/lib/MongoClient';
+"use client"
+import React, { useState } from 'react'
+import { useRouter } from 'next/navigation';
+import axios from 'axios';
 
-async function Profile() {
-  const userId = '659337a330dbca92e58f9699';
-  const balance = await getBalance(userId);
+export function Profile() {
+  const router = useRouter();
+  const [data, setData] = useState("nothing");
+  const [experience, setExperience] = useState(0);
 
-  updateBalance(userId, 13);  
+  const getUserDetails = async () => {
+    const res = await axios.get('/api/users/me')
+    setData(res.data.data._id);
+    console.log(res.data.data.experience)
+    setExperience(res.data.data.experience);
+  }
   return (
     <div>
       <h1>Profile here</h1>
+      <button onClick={getUserDetails}>Details</button>
+      <h3>experience: {experience}</h3>
       <p>Hours Studied: </p>
-      <p>Balance: {balance}</p>
     </div>
   )
 }
 
 export default Profile
-/*
-export async function getServerSideProps() {
-  try {
-    const client = await clientPromise;
-    const db = client.db("sample_mflix");
-
-    const movies = await db
-    .collection("test")
-    .find()
-    .toArray();
-
-    return {
-        props: { movies: JSON.parse(JSON.stringify(movies)) },
-    };
-    } catch (e) {
-    console.error(e);
-  }
-}
-*/
