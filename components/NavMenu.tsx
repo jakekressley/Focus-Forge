@@ -34,7 +34,6 @@ export default function NavMenu() {
                     <Link href="/study">Study</Link>
                     <Link href="/tree">Skills</Link>
                     <Link href="/profile">Profile</Link>
-                    <AuthButton />
                 </nav>
         </header>
         </div>

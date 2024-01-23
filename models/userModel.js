@@ -24,9 +24,9 @@ const userSchema = new mongoose.Schema({
         default: false,
     },
     forgotPasswordToken: String,
-    forgotPasswordTokenExpriy: Date,
+    forgotPasswordTokenExpiry: Date,
     verifyToken: String,
-    verifyTokenExpriy: Date,
+    verifyTokenExpiry: Date,
 
     experience: {
         type: Number,
@@ -34,6 +34,6 @@ const userSchema = new mongoose.Schema({
     },
 })
 
-const User = mongoose.models.users || mongoose.model("users", userSchema)
+const User = mongoose.models.users || mongoose.model("User", userSchema)
 
 export default User;

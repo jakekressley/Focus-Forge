@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import axios from "axios"
 
+
 export default function SignupPage() {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
@@ -12,27 +13,27 @@ export default function SignupPage() {
         email: "",
         password: "",
     })
-
-        const onLogin = async () => {
-            try {
-                setLoading(true);
-                const reponse = await axios.post("/api/users/login", user);
-                router.push("/");
-            } catch (error: any) {
-                console.log("Login failed", error.message);
-            } finally {
-                setLoading(false);
-            }
+    
+    const onLogin = async () => {
+        try {
+            setLoading(true);
+            const reponse = await axios.post("/api/users/login", user);
+            router.push("/");
+        } catch (error: any) {
+            console.log("Login failed", error.message);
+        } finally {
+            setLoading(false);
         }
-
-        const logout = async () => {
-            try {
-                await axios.get("/api/users/logout");
-                router.push("/login");
-            } catch (error: any) {
-                console.log(error.message);
-            }
+    }
+    
+    const logout = async () => {
+        try {
+            await axios.get("/api/users/logout");
+            router.push("/login");
+        } catch (error: any) {
+            console.log(error.message);
         }
+    }
         
         return (
             <div className="">
@@ -46,6 +47,7 @@ export default function SignupPage() {
                     value={user.email}
                     onChange={(e) => setUser({...user, email: e.target.value})}
                     placeholder="email"
+                    className="text-black"
                     />
 
                 <label htmlFor="password">password</label>
@@ -55,9 +57,11 @@ export default function SignupPage() {
                     value={user.password}
                     onChange={(e) => setUser({...user, password: e.target.value})}
                     placeholder="password"
+                    className="text-black"
                     />
                 
                 <button onClick={onLogin}><Link href="/signup">Visit signup page</Link></button>
+                <button onClick={logout}>Log out</button>
             </div>
         )
 }
