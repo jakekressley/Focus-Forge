@@ -42,6 +42,6 @@ export const sendEmail = async({email, emailType, userId}: any) => {
             ${emailType === "VERIFY" ? "Verify your email" : "Reset your password"}</p>`
         })
     } catch (error: any) {
-        throw new Error(error.message);
+        throw new Error("lol error", error.message);
     }
 }

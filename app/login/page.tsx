@@ -60,8 +60,8 @@ export default function SignupPage() {
                     className="text-black"
                     />
                 
-                <button onClick={onLogin}><Link href="/signup">Visit signup page</Link></button>
-                <button onClick={logout}>Log out</button>
+                <button onClick={onLogin}>Login</button>
+                <Link href="/signup">Visit signup page</Link>
             </div>
         )
 }

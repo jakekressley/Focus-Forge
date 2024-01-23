@@ -1,11 +1,10 @@
-import Image from 'next/image'
-// this should probably be the login page
-import Form from '@/components/Form';
-import { Provider } from 'react-redux'
+import { useState, useEffect } from 'react'
 import { getServerSession } from 'next-auth'
-import { Span } from 'next/dist/trace';
+import axios from 'axios';
 
 export default async function Home() {
+  //const [data, setData] = useState("nothing");
+  //const [experience, setExperience] = useState(0);
   const session = await getServerSession();
 
   //Red -> Pink -> Green  -> Blue -> Copper -> Silver -> Gold
@@ -16,15 +15,21 @@ export default async function Home() {
   const copper = 'text-yellow-500'
   const silver = 'text-gray-500'
   const gold = 'text-yellow-300'
-  const xp = 100000;
+  const xp = 12;
+/*
+  useEffect(() => {
+    const getUserDetails = async () => {
+      const res = await axios.get('/api/users/me')
+      setData(res.data.data._id);
+      console.log(res.data.data.experience)
+      setExperience(res.data.data.experience);
+    }
 
+    getUserDetails();
+  }, [])
+*/
   return (
     <>
-      getServerSession Result {session?.user?.name ? (
-        <div> {session?.user?.name} </div>
-      ) : (
-        <div>Not logged in</div>
-      )}
       <div>
         <h1>Home</h1>
         <h3>Your Rank: 

@@ -1,8 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import { getBalance, updateBalance } from '../../components/currency/StudyCredit'
 import { useRouter } from 'next/navigation';
-import { ObjectId } from 'mongodb';
 import axios from 'axios';
 
 export function Profile() {
@@ -20,7 +18,6 @@ export function Profile() {
     <div>
       <h1>Profile here</h1>
       <button onClick={getUserDetails}>Details</button>
-      <h2>{data === "nothing" ? "nothing" : data}</h2>
       <h3>experience: {experience}</h3>
       <p>Hours Studied: </p>
     </div>

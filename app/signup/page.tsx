@@ -5,6 +5,7 @@ import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import axios from "axios"
+import mongoose from "mongoose"
 
 export default function SignupPage() {
     const router = useRouter();
@@ -17,7 +18,8 @@ export default function SignupPage() {
     const onSignup = async () => {
         try {
             const response = await axios.post("/api/users/signup", user);
-            router.push("/login");
+            console.log("made it through")
+            router.push("/");
         } catch (error: any) {
             console.log("Signup failed", error.message);
         }
