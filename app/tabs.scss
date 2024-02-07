@@ -1,7 +1,19 @@
+.container {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+    flex-direction: column;
+	justify-content: center;
+}
+
 .--tab-group {
 	display: flex;
 	position: relative;
-	background-color: #fff;
+	background-color: red;
 	box-shadow: 0 0 1px 0 rgba(#185ee0, 0.15), 0 6px 12px 0 rgba(#185ee0, 0.15);
 	padding: 0.75rem;
 	border-radius: 99px; // just a high number to create pill effect
@@ -55,20 +67,12 @@ input[id="radio-2"] {
 	}
 }
 
-input[id="radio-3"] {
-	&:checked {
-		& ~ .glider {
-			transform: translateX(200%);
-		}
-	}
-}
-
 .--glider {
 	position: absolute;
 	display: flex;
 	height: 54px;
 	width: 200px;
-	background-color: var(blue);
+	background-color: blue;
 	z-index: 1;
 	border-radius: 99px; // just a high number to create pill effect
 	transition: 0.25s ease-out;
