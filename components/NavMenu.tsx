@@ -28,16 +28,14 @@ function AuthButton() {
 
 export default function NavMenu() {
     return (
-        <div>
-            <header className="w-full bg-nightblue p-8 --header">
-                <nav className="flex text-white gap-6 font-bold items-end">
-                    <span className="text-3xl mr-10 --header-name">Focus Forge</span>
-                    <Link href="/">Home</Link>
-                    <Link href="/study">Study</Link>
-                    <Link href="/tree">Skills</Link>
-                    <Link href="/profile">Profile</Link>
-                </nav>
+        <header className="w-full bg-nightblue pt-8 pb-4 --header flex px-40 items-center">
+            <span className="text-4xl --header-name font-bold">Focus Forge</span>
+            <nav className="flex text-white gap-6 font-bold items-start ml-auto text-xl">
+                <Link href="/" className="">Home</Link>
+                <Link href="/study">Study</Link>
+                <Link href="/tree">Skills</Link>
+                <Link href="/profile">Profile</Link>
+            </nav>
         </header>
-        </div>
     )
 }
