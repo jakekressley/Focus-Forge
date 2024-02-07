@@ -8,7 +8,7 @@ import prisma from '@/lib/prisma'
 import { ClassNames } from '@emotion/react'
 
 const Study = () => {
-  const styles = '--tab cursor-pointer w-1/2 rounded-lg py-2.5 font-medium leading-5 text-center text-lg --tab-hover text-lightgray'
+  const styles = '--tab cursor-pointer w-1/2 rounded-lg py-2.5 font-medium leading-5 text-center text-lg --tab-hover text-lightgray fw-bold'
   const selected = 'bg-gray-800 opacity-100 fw-bold border-b-2 border-white text-offwhite'
   
   const [selectedTab, setSelectedTab] = React.useState('Timer')
@@ -20,8 +20,8 @@ const Study = () => {
           as="div"
           className="--tab-group"
         >
-          <Tab as="div" className={selectedTab === 'Timer' ? `${styles} ${selected} text-offwhite` : `${styles}`} onClick={() => setSelectedTab('Timer')}>Timer</Tab>
-          <Tab as="div" className={selectedTab === 'Pomodoro' ? `${styles} ${selected} text-offwhite` : `${styles}`} onClick={() => setSelectedTab('Pomodoro')}>Pomodoro</Tab>
+          <Tab as="div" className={selectedTab === 'Timer' ? `${styles} ${selected} --tab-selected` : `${styles}`} onClick={() => setSelectedTab('Timer')}>Timer</Tab>
+          <Tab as="div" className={selectedTab === 'Pomodoro' ? `${styles} ${selected} --tab-selected` : `${styles}`} onClick={() => setSelectedTab('Pomodoro')}>Pomodoro</Tab>
         </Tab.List>
         <Tab.Panels>
           <Tab.Panel>

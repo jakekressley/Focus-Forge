@@ -53,12 +53,12 @@ const Timer = () => {
             <div className='flex justify-evenly items-center w-1/2 gap-4 m-6'>
                 <div>
                     {isActive ? (
-                        <TimerButton label="Pause" onClick={handlePause}></TimerButton>
+                        <TimerButton label="Pause" onClick={handlePause} size="large"></TimerButton>
                     ) : (
-                        <TimerButton label="Start" onClick={handleStart}></TimerButton>
+                        <TimerButton label="Start" onClick={handleStart} size="large"></TimerButton>
                     )}
                 </div>
-                <TimerButton label="Reset" onClick={handleReset}></TimerButton>
+                <TimerButton label="Reset" onClick={handleReset} size="large"></TimerButton>
             </div>
             <div className="m-4">
                 <TimerButton label="End Session" size="large"></TimerButton>
