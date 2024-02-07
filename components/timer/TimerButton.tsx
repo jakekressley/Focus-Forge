@@ -2,10 +2,12 @@ import { TimerButtonTypes } from '@/types'
 import React from 'react'
 
 const TimerButton = ({label, onClick, className, size}: TimerButtonTypes) => {
-    const defaultStyles = "bg-white rounded-md text-gray-800 p-1.5 font-bold"
+    const defaultStyles = "bg-white rounded-md text-gray-700 p-1.5 font-bold --btn "
+    const largeStyles = "py-3 px-6 text-lg";
+    const smallStyles = "py-2 px-4 text-sm"
   return (
     <div>
-      <button className={size === 'large' ? `w-[272px] ${defaultStyles} p-2.5 text-lg` : `w-[128px] ${defaultStyles}`} onClick={onClick}>{label}</button>
+      <button className={`${defaultStyles} ${size === 'large' ? largeStyles : smallStyles}`} onClick={onClick}>{label}</button>
     </div>
   )
 }

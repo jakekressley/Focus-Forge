@@ -146,54 +146,54 @@ function PomodoroTimer() {
             <div className="mt-5 grid grid-rows-2 grid-cols-2 gap-x-4
             gap-y-3">
                 <div className="--input-group">
-                    <label htmlFor="focus-time" className="text-sm">Focus duration: </label>
+                    <label htmlFor="focus-time" className="text-md --header-name font-bold">Focus duration: </label>
                     <input name="focus-time" type="number" min="1" defaultValue={25} id="focus-time"
-                    className="text-white bg-gray-800 border border-white rounded p-1 w-[50px] text-center text-md"
+                    className="--input-gradient"
                     onChange={handleFocusTimeChange}
                     />
                 </div>
 
                 <div className="--input-group">
-                    <label htmlFor="short-break" className="text-sm">Short Break Duration: </label>
+                    <label htmlFor="short-break" className="text-md --header-name font-bold">Short Break Duration: </label>
                     <input name="short-break" type="number" min="1" defaultValue={5} id="short-break"
-                    className="text-white bg-gray-800 border border-white rounded p-1 w-[50px] text-center text-md"
+                    className="--input-gradient"
                     onChange={handleShortBreakChange}
                     />
                 </div>
 
                 <div className="--input-group">
-                    <label htmlFor="long-break" className="text-sm">Long Break Duration: </label>
+                    <label htmlFor="long-break" className="text-md --header-name font-bold">Long Break Duration: </label>
                     <input name="long-break" type="number" min="1" defaultValue={20} id="long-break"
-                    className="text-white bg-gray-800 border border-white rounded p-1 w-[50px] text-center text-md"
+                    className="--input-gradient"
                     onChange={handleLongBreakChange}
                     />
                 </div>
                 
                 <div className="--input-group">
-                    <label htmlFor="break-freq" className="text-sm">Long Break Frequency: </label>
+                    <label htmlFor="break-freq" className="text-md --header-name font-bold">Long Break Frequency: </label>
                     <input name="break-freq" type="number" defaultValue={4} id="break-freq"
-                    className="text-white bg-gray-800 border border-white rounded p-1 w-[50px] text-center text-md"
+                    className="--input-gradient"
                     onChange={handleFreqChange}
                     />
                 </div>
             </div>
             <span className='text-9xl m-20'>{minutes} : {String(seconds).padStart(2, '0')}</span>
-            <div className='flex justify-evenly items-center w-1/2 gap-4'>
+            <div className='flex justify-evenly items-center w-100 gap-4 mb-20 mt-5'>
                 <div>
                     {isActive ? (
-                        <TimerButton label="Pause" onClick={handlePause}></TimerButton>
+                        <TimerButton label="Pause" onClick={handlePause} size="large"></TimerButton>
                         ) : (
-                            <TimerButton label="Start" onClick={handleStart}></TimerButton>
+                            <TimerButton label="Start" onClick={handleStart} size="large"></TimerButton>
                             )}
                 </div>
-                <TimerButton label="Fast Forward" onClick={handleForward}></TimerButton>
+                <TimerButton label="Fast Forward" onClick={handleForward} size="large"></TimerButton>
+                <div>
+                    <TimerButton label="Reset" onClick={handleReset} size="large"></TimerButton>
+                </div>
+                <div>
+                    <TimerButton label="End session" size="large"></TimerButton>
+                </div>        
             </div>
-            <div className="mt-10">
-                <TimerButton label="Reset" onClick={handleReset} className="mt-6"></TimerButton>
-            </div>
-            <div className="m-10">
-                <TimerButton label="End session" size="large"></TimerButton>
-            </div>        
             <p>Short Break Counter: {shortBreakCounter}</p>
             <p>Total Session Counter: {totalSessionCounter}</p>
         </div>
