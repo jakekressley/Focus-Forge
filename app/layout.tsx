@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Orbitron } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
 import { getServerSession } from 'next-auth'
@@ -27,9 +27,9 @@ export default async function RootLayout({
       </head>
       <body>
         <SessionProvider session={session}>
-          <main className="bg-gray-800 text-white h-screen">
+          <main className="bg-nightblue text-white h-screen">
             <NavMenu />
-            <div className="p-10 pt-0 h-100">
+            <div className="p-10 h-100">
               {children}
             </div>
           </main>

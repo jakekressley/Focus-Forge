@@ -7,7 +7,19 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'inter': ['Inter', 'sans-serif'],
+        'orbitron': ['Orbitron', 'sans-serif']
+      },
+      colors: {
+        'nightblue': '#05051c',
+        'darkblue': '#11051c',
+      },
+      backgroundImage: theme => ({
+        'gradient-to-b': 'linear-gradient(to bottom, var(--tw-gradient-stops))',
+     })
+    }
   },
   plugins: [],
 }

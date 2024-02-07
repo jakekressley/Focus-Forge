@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { signIn, signOut, useSession } from 'next-auth/react';
+import { Orbitron } from 'next/font/google';
 
 const ACTIVE_ROUTE = "py-1 px-2 text-gray-300 bg-gray-700 border border-white rounded"
 const INACTIVE_ROUTE = "py-1 px-2 text-gray-300 hover:bg-gray-700 border border-white rounded"
@@ -28,8 +29,9 @@ function AuthButton() {
 export default function NavMenu() {
     return (
         <div>
-            <header className="w-full bg-gray-800 p-6">
-                <nav className="flex text-white gap-6 font-bold items-center border-b border-b-gray-500 pb-10">
+            <header className="w-full bg-nightblue p-8 --header">
+                <nav className="flex text-white gap-6 font-bold items-end">
+                    <span className="text-3xl mr-10 --header-name">Focus Forge</span>
                     <Link href="/">Home</Link>
                     <Link href="/study">Study</Link>
                     <Link href="/tree">Skills</Link>
