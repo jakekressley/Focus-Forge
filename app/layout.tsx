@@ -1,12 +1,16 @@
 import type { Metadata } from 'next'
-import { Inter, Orbitron } from 'next/font/google'
+import { Orbitron } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
 import { getServerSession } from 'next-auth'
 import SessionProvider from '@/components/SessionProvider'
 import NavMenu from '@/components/NavMenu'
 
-const inter = Inter({ subsets: ['latin'] })
+const orbitron = Orbitron({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-orbitron',
+})
 
 export const metadata: Metadata = {
   title: 'Focus Forge',
@@ -21,11 +25,11 @@ export default async function RootLayout({
   const session = await getServerSession();
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${orbitron.variable}`}>
       <head>
         <title>Focus Forge</title>
       </head>
-      <body>
+      <body className="font-orbitron">
         <SessionProvider session={session}>
           <main className="bg-nightblue text-white h-screen">
             <NavMenu />

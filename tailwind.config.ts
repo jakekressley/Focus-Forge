@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],
-        'orbitron': ['Orbitron', 'sans-serif']
+        'orbitron': ['var(--font-orbitron)', 'sans-serif'],
       },
       colors: {
         'nightblue': '#05051c',

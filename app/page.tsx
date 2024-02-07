@@ -13,7 +13,7 @@ export default async function Home() {
   const green = 'text-green-500'
   const blue = 'text-blue-500'
   const copper = 'text-yellow-500'
-  const silver = 'text-gray-500'
+  const silver = 'text-gray-300'
   const gold = 'text-yellow-300'
   const xp = 12;
 /*
@@ -35,6 +35,16 @@ export default async function Home() {
         <h3>Your Rank: 
           { xp < 60 ? <span className={red}>Red</span> : (xp < 300) ? <span className={pink}>Pink</span> : (xp < 600) ? <span className={green}>Green</span> : (xp < 1200) ? <span className={blue}>Blue</span> : (xp < 1800) ? <span className={copper}>Copper</span> : (xp < 3000) ? <span className={silver}>Silver</span> : <span className={gold}>Gold</span>}
         </h3>
+        <h3 className="text-xl">Ranks:</h3>
+        <p>
+          <span className={red}>Red</span> -&gt; 
+          <span className={pink}>Pink</span> -&gt; 
+          <span className={green}>Green</span> -&gt;
+          <span className={blue}>Blue</span> -&gt;
+          <span className={copper}>Copper</span> -&gt;
+          <span className={silver}>Silver</span> -&gt;
+          <span className={gold}>Gold</span>
+        </p>
       </div>
     </>
   )

@@ -20,6 +20,7 @@
     "@mui/icons-material": "^5.15.3",
     "@mui/material": "^5.15.3",
     "@next-auth/prisma-adapter": "^0.4.4-canary.81",
+    "@next/font": "^14.1.0",
     "@prisma/client": "^5.8.1",
     "@reduxjs/toolkit": "^2.0.1",
     "@types/jsonwebtoken": "^9.0.5",
