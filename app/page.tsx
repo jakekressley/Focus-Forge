@@ -76,7 +76,8 @@ export default async function Home() {
     <div className="flex justify-evenly">
       <div className="w-[50%]">
         <div className="space-y-4">
-          <h3 className="text-lg text-center">Your Rank: 
+          <h2 className="text-3xl font-bold mb-4 text-center --header-name">Progress</h2>
+          <h3 className="text-lg flex items-center justify-center">Current Rank: 
             { xp < 500 ? <span className={`${rankStyles} ${red}`}>Red</span> : 
               (xp < 1500) ? <span className={`${rankStyles} ${pink}`}>Pink</span> : 
               (xp < 3500) ? <span className={`${rankStyles} ${green}`}>Green</span> : 
@@ -85,9 +86,9 @@ export default async function Home() {
               (xp < 12000) ? <span className={`${rankStyles} ${silver}`}>Silver</span> : 
               <span className={`${rankStyles} ${gold}`}>Gold</span>}
             </h3>
-            <h3>Your Experience: {experience}</h3>
-            <h3>Your Rank Progress: {rankProgressString}</h3>
-            <div className="h-4 w-full bg-transparent rounded --border border-red-400">
+            <h3 className="text-lg mb-2">Total Experience: {experience}</h3>
+            <h3 className="text-lg mb-2">Rank Progress: {rankProgressString}</h3>
+            <div className="h-4 w-[25rem] bg-transparent rounded --border">
               <div className="h-full --gradient-bg rounded transition-all duration-500 ease-in-out" style={{ width: `${rankProgressPercent}%` }}></div>
             </div>
             <h3>Total Hours Studied: {hours} hours</h3>
