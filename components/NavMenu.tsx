@@ -33,8 +33,8 @@ export default function NavMenu() {
             <nav className="flex text-white gap-6 font-bold items-start ml-auto text-xl">
                 <Link href="/" className="">Home</Link>
                 <Link href="/study">Study</Link>
-                <Link href="/tree">Skills</Link>
-                <Link href="/profile">Profile</Link>
+                <Link href="/about">About</Link>
+                <Link href="/tips">Tips</Link>
             </nav>
         </header>
     )
