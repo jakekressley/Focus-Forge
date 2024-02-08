@@ -25,3 +25,8 @@ export interface TimerButtonTypes {
     className?: string;
     size?: string;
 }
+
+export interface RankTypes {
+    //color: string;
+    bgColor: string;
+}

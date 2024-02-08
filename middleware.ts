@@ -22,12 +22,12 @@ export function middleware(request: NextRequest) {
 
 export const config = {
     matcher: [
-        //'/',
-        //'/profile',
-        //'/tree',
-        //'/login',
-        //'/signup',
-        //'/verifyemail',
-        //'/study',
+        '/',
+        '/profile',
+        '/tree',
+        '/login',
+        '/signup',
+        '/verifyemail',
+        '/study',
     ]
 }
