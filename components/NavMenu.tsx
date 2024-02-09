@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { Orbitron } from 'next/font/google';
+import LogoutButton from './LogoutButton';
 
 const ACTIVE_ROUTE = "py-1 px-2 text-gray-300 bg-gray-700 border border-white rounded"
 const INACTIVE_ROUTE = "py-1 px-2 text-gray-300 hover:bg-gray-700 border border-white rounded"
@@ -35,6 +36,7 @@ export default function NavMenu() {
                 <Link href="/study">Study</Link>
                 <Link href="/about">About</Link>
                 <Link href="/tips">Tips</Link>
+                <Link href="logout" className="--border">Logout</Link>
             </nav>
         </header>
     )

@@ -148,7 +148,7 @@ function PomodoroTimer() {
                 <div className="--input-group">
                     <label htmlFor="focus-time" className="text-md --header-name font-bold">Focus duration: </label>
                     <input name="focus-time" type="number" min="1" defaultValue={25} id="focus-time"
-                    className="--input-gradient"
+                    className="w-[50px] --input-gradient"
                     onChange={handleFocusTimeChange}
                     />
                 </div>
@@ -156,7 +156,7 @@ function PomodoroTimer() {
                 <div className="--input-group">
                     <label htmlFor="short-break" className="text-md --header-name font-bold">Short Break Duration: </label>
                     <input name="short-break" type="number" min="1" defaultValue={5} id="short-break"
-                    className="--input-gradient"
+                    className="w-[50px]  --input-gradient"
                     onChange={handleShortBreakChange}
                     />
                 </div>
@@ -164,7 +164,7 @@ function PomodoroTimer() {
                 <div className="--input-group">
                     <label htmlFor="long-break" className="text-md --header-name font-bold">Long Break Duration: </label>
                     <input name="long-break" type="number" min="1" defaultValue={20} id="long-break"
-                    className="--input-gradient"
+                    className="w-[50px] --input-gradient"
                     onChange={handleLongBreakChange}
                     />
                 </div>
@@ -172,7 +172,7 @@ function PomodoroTimer() {
                 <div className="--input-group">
                     <label htmlFor="break-freq" className="text-md --header-name font-bold">Long Break Frequency: </label>
                     <input name="break-freq" type="number" defaultValue={4} id="break-freq"
-                    className="--input-gradient"
+                    className="w-[50px] --input-gradient"
                     onChange={handleFreqChange}
                     />
                 </div>

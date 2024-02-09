@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import axios from "axios"
+import Form from "@/components/Form"
 
 
 export default function SignupPage() {
@@ -57,7 +58,7 @@ export default function SignupPage() {
                     value={user.password}
                     onChange={(e) => setUser({...user, password: e.target.value})}
                     placeholder="password"
-                    className="text-black"
+                    className="text-black --input-gradient text-left"
                     />
                 
                 <button onClick={onLogin}>Login</button>

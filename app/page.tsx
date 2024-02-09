@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth";
 import axios from "axios";
 import Rank from "@/components/Rank";
 
-export default async function Home() {
+export default function Home() {
   //const [data, setData] = useState("nothing");
   //const [experience, setExperience] = useState(0);
   //const session = await getServerSession();
@@ -28,7 +28,7 @@ export default async function Home() {
   const copper = "text-yellow-500";
   const silver = "text-gray-300";
   const gold = "text-yellow-300";
-  const xp = 324;
+  const xp = experience;
   const hours: number = Math.floor(xp / 60);
 
   const getRankProgressString = (xp: number) => {

@@ -15,7 +15,7 @@ const Rank = ({ bgColor }: RankTypes) => {
     const colorClass = colorClasses[bgColor] || 'bg-red-500'; // default to red if no match
 
     return <div className={`${colorClass} w-[10rem] h-[3rem] flex items-center justify-center rounded-2xl`}>
-        <span className="text-white font-bold">{bgColor}</span>
+        <span className="text-white font-bold text-2xl">{bgColor}</span>
     </div>;
 };
 
