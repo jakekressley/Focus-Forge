@@ -14,13 +14,7 @@ export default function SignupPage() {
     password: "",
   });
 
-  const [emailValid, setEmailValid] = useState(true);
-  const [passwordValid, setPasswordValid] = useState(true);
-
   const onLogin = async () => {
-    //setEmailValid(emailRegex.test(user.email));
-    //setPasswordValid(user.password.length >= 6);
-
     try {
       setLoading(true);
       const reponse = await axios.post("/api/users/login", user);
@@ -60,8 +54,8 @@ export default function SignupPage() {
               type="email"
               value={user.email}
               onChange={(e) => setUser({ ...user, email: e.target.value })}
-              placeholder={emailValid ? "Enter email" : "Invalid email"}
-              className={`--form-input ${emailValid ? 'border-green-500' : 'border-red-500'}`}
+              placeholder="Enter email"
+              className="--form-input"
             />
             <i className="--icon"></i>
           </div>
