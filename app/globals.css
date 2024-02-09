@@ -1,24 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
 
 :root {
-    --primary-color: #05051c;
-    --secondary-color: #e2e8ffbf;
+  --primary-color: #05051c;
+  --secondary-color: #e2e8ffbf;
+  --color-gradient: background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
 }
 
 @layer base {
-    html {
-      font-family: "Orbitron",
-    }
+  html {
+    font-family: "Orbitron";
   }
+}
 
 .--input-group {
-    display: flex;
-    gap: 1rem;
-    justify-content: flex-end;
-    align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  align-items: center;
 }
 /* 
 .--input-settings {
@@ -33,86 +34,175 @@
 } */
 
 .--header-name {
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-color: #f334ff;
-    background-image: linear-gradient(255deg, #fda1ff 0%, #f0f0f0 100%);
-
-    font-family: 'Orbitron',;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-color: #f334ff;
+  background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+  background-size: 200% 200%;
+  animation: Gradient 7s ease infinite;
 }
 
 .font-orbitron {
-    font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 
 .--header {
-    background: rgba(255,255,255,.01);
-    border-bottom: 1px solid rgba(226,232,255,.1);
+  background: rgba(255, 255, 255, 0.01);
+  border-bottom: 1px solid rgba(226, 232, 255, 0.1);
 }
 
 .--border {
-    border: 1px solid rgba(226,232,255,.1);
+  border: 1px solid rgba(226, 232, 255, 0.1);
+}
+
+.--bottom-border {
+  border-bottom: 1px solid rgba(226, 232, 255, 0.1);
 }
 
 .--gradient-bg {
   background-size: 200% 200%;
-  background-image: linear-gradient(255deg, #fda1ff 0%, #f0f0f0 50%, #fda1ff 100%);
+  background-color: #00DBDE;
+  background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
   animation: Gradient 7s ease infinite;
 }
 
 @keyframes Gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .--tab {
-    position: relative;
-    padding: 12px 20px;
-    cursor: pointer;
-    font-weight: bold;
-    overflow: hidden;
-    background-color: #05051c;
-    border-radius: 500px;
-    border: 1px solid transparent;
-    transition: border 0.45s cubic-bezier(.6,.6,0,1);
+  position: relative;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  overflow: hidden;
+  background-color: #05051c;
+  border-radius: 500px;
+  border: 1px solid transparent;
+  transition: border 0.45s cubic-bezier(0.6, 0.6, 0, 1);
 }
 
 .--tab:hover {
-    border-color: rgba(226,232,255,.1);
+  border-color: rgba(226, 232, 255, 0.1);
 }
 
 .--tab-group {
-    border: 1px solid rgba(226,232,255,.1);
-    display: flex;
-    justify-content: center;
-    border-radius: 0.5rem;
-    align-items: center;
-    width: 400px;
-    padding: 4px;
-    margin-bottom: 1.25rem;
-    border-radius: 500px;
+  border: 1px solid rgba(226, 232, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  border-radius: 0.5rem;
+  align-items: center;
+  width: 400px;
+  padding: 4px;
+  margin-bottom: 1.25rem;
+  border-radius: 500px;
 }
 
 .--btn {
-    background-color: #f334ff;
-    background-image: linear-gradient(255deg, #fda1ff 0%, #f0f0f0 100%);
+  background-color: #f334ff;
+  background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+  background-size: 200% 200%;
+  animation: Gradient 7s ease infinite;
 }
 
 .--tab-selected {
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-color: #f334ff;
-    background-image: linear-gradient(255deg, #fda1ff 0%, #f0f0f0 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-color: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+  background-size: 200% 200%;
+  animation: Gradient 7s ease infinite;
 }
 
 .--input-gradient {
-    background: linear-gradient(to bottom, #05051c 60%, rgba(255, 255, 255, 0.1));
-    color: var(--secondary-color);
-    background-color: #2d3748;
-    border: 1px solid rgba(226,232,255,.5);
-    border-radius: 0.25rem;
-    text-align: center;
-    padding: 0.25rem;
-    font-size: 1rem;
+  background: linear-gradient(to bottom, #05051c 60%, rgba(255, 255, 255, 0.1));
+  color: var(--secondary-color);
+  background-color: #2d3748;
+  border: 1px solid rgba(226, 232, 255, 0.5);
+  border-radius: 0.25rem;
+  text-align: center;
+  padding: 0.25rem;
+  font-size: 1rem;
+}
+
+.--form-input {
+  background: linear-gradient(to bottom, #05051c 60%, rgba(255, 255, 255, 0.1));
+  color: var(--secondary-color);
+  background-color: #2d3748;
+  border: 1px solid rgba(226, 232, 255, 0.5);
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  padding: 0.1rem 0.5rem;
+  width: 100%;
+}
+
+.--form-shadow {
+  box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.1);
+}
+
+.--form-control {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.--form-control label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+--.form-control .--icon{
+    position: absolute;
+    right: 10px;
+    top: 71%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: transparent;
+    pointer-events: none;
+}
+
+.--form-control.success input {
+    border-color: #2ecc71;
+}
+
+.--form-control.success .icon{
+    color: #2ecc71;
+}
+
+.--form-control.error input {
+    border-color: #e74c3c;
+}
+
+.--form-control.error .icon,
+.--form-control.error input::placeholder {
+    color: #e74c3c;
+}
+
+
+.--form-button {
+  width: 50%;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  margin-top: 1.5rem;
+}
+
+@media screen and (max-width: 920px) {
+    
+    .container img{
+        display: none;
+    }
+
+    .container form{
+        width: 100%;
+    }
 }

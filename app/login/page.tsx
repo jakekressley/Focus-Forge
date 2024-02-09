@@ -1,68 +1,96 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { useEffect, useState } from "react"
-import { useRouter } from "next/navigation"
-import axios from "axios"
-import Form from "@/components/Form"
-
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import axios from "axios";
+import Form from "@/components/Form";
 
 export default function SignupPage() {
-    const router = useRouter();
-    const [loading, setLoading] = useState(false);
-    const [user, setUser] = useState({
-        email: "",
-        password: "",
-    })
-    
-    const onLogin = async () => {
-        try {
-            setLoading(true);
-            const reponse = await axios.post("/api/users/login", user);
-            router.push("/");
-        } catch (error: any) {
-            console.log("Login failed", error.message);
-        } finally {
-            setLoading(false);
-        }
-    }
-    
-    const logout = async () => {
-        try {
-            await axios.get("/api/users/logout");
-            router.push("/login");
-        } catch (error: any) {
-            console.log(error.message);
-        }
-    }
-        
-        return (
-            <div className="">
-                <h1>{loading ? "Processing" : "Login"}</h1>
-                <hr />
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
 
-                <label htmlFor="email">email</label>
-                <input 
-                    id="email" 
-                    type="text"
-                    value={user.email}
-                    onChange={(e) => setUser({...user, email: e.target.value})}
-                    placeholder="email"
-                    className="text-black"
-                    />
+  const [emailValid, setEmailValid] = useState(true);
+  const [passwordValid, setPasswordValid] = useState(true);
 
-                <label htmlFor="password">password</label>
-                <input 
-                    id="password" 
-                    type="password"
-                    value={user.password}
-                    onChange={(e) => setUser({...user, password: e.target.value})}
-                    placeholder="password"
-                    className="text-black --input-gradient text-left"
-                    />
-                
-                <button onClick={onLogin}>Login</button>
-                <Link href="/signup">Visit signup page</Link>
-            </div>
-        )
+  const onLogin = async () => {
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    setEmailValid(emailRegex.test(user.email));
+    setPasswordValid(user.password.length >= 6);
+
+    try {
+      setLoading(true);
+      const reponse = await axios.post("/api/users/login", user);
+      router.push("/");
+    } catch (error: any) {
+      console.log("Login failed", error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const logout = async () => {
+    try {
+      await axios.get("/api/users/logout");
+      router.push("/login");
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
+
+  return (
+    <div className="flex justify-center">
+      <div className="flex gap-[20px] --border rounded-md max-w-[920px] p-6 --form-shadow">
+        <img
+          src="/form-picture.jpg"
+          alt="futuristic picture"
+          className="w-1/2 rounded-md object-cover"
+        />
+        <form id="loginForm" noValidate className="w-4/5 flex flex-col items-center">
+          <h1 className="--header-name text-center mb-4 text-3xl font-bold">
+            {loading ? "Processing" : "Login"}
+          </h1>
+          <div className="--form-control">
+            <label htmlFor="email" className="--header-name">email</label>
+            <input
+              id="email"
+              type="text"
+              value={user.email}
+              onChange={(e) => setUser({ ...user, email: e.target.value })}
+              placeholder={emailValid ? "Enter email" : "Invalid email"}
+              className={`--form-input ${emailValid ? 'border-green-500' : 'border-red-500'}`}
+            />
+            <i className="--icon"></i>
+          </div>
+          <div className="--form-control">
+            <label htmlFor="password" className="--header-name">password</label>
+            <input
+              id="password"
+              type="password"
+              value={user.password}
+              onChange={(e) => setUser({ ...user, password: e.target.value })}
+              placeholder="Enter password"
+              className="text-black --form-input text-left"
+            />
+            <i className="--icon"></i>
+          </div>
+
+          <button
+            onClick={onLogin}
+            className="--form-button --gradient-bg font-bold text-white"
+          >
+            Login
+          </button>
+          <span className="mt-20">
+						Don't have an account? {" "}
+						<Link href="/signup" className="--header-name">Click here!</Link>
+					</span>
+        </form>
+      </div>
+    </div>
+  );
 }
