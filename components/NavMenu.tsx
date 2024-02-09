@@ -29,7 +29,7 @@ function AuthButton() {
 
 export default function NavMenu() {
     return (
-        <header className="w-full bg-nightblue pt-8 pb-4 --header flex px-40 items-center">
+        <header className="w-full bg-nightblue pt-8 pb-4 --header flex px-40 items-end">
             <span className="text-4xl --header-name font-bold">Focus Forge</span>
             <nav className="flex text-white gap-6 font-bold items-start ml-auto text-xl">
                 <Link href="/" className="">Home</Link>

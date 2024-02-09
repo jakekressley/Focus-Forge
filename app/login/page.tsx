@@ -18,9 +18,8 @@ export default function SignupPage() {
   const [passwordValid, setPasswordValid] = useState(true);
 
   const onLogin = async () => {
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    setEmailValid(emailRegex.test(user.email));
-    setPasswordValid(user.password.length >= 6);
+    //setEmailValid(emailRegex.test(user.email));
+    //setPasswordValid(user.password.length >= 6);
 
     try {
       setLoading(true);
@@ -46,7 +45,7 @@ export default function SignupPage() {
     <div className="flex justify-center">
       <div className="flex gap-[20px] --border rounded-md max-w-[920px] p-6 --form-shadow">
         <img
-          src="/form-picture.jpg"
+          src="/form-login.jpg"
           alt="futuristic picture"
           className="w-1/2 rounded-md object-cover"
         />
@@ -58,7 +57,7 @@ export default function SignupPage() {
             <label htmlFor="email" className="--header-name">email</label>
             <input
               id="email"
-              type="text"
+              type="email"
               value={user.email}
               onChange={(e) => setUser({ ...user, email: e.target.value })}
               placeholder={emailValid ? "Enter email" : "Invalid email"}
