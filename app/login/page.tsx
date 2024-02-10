@@ -1,68 +1,92 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { useEffect, useState } from "react"
-import { useRouter } from "next/navigation"
-import axios from "axios"
-import Form from "@/components/Form"
-
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import axios from "axios";
+import Form from "@/components/Form";
 
 export default function SignupPage() {
-    const router = useRouter();
-    const [loading, setLoading] = useState(false);
-    const [user, setUser] = useState({
-        email: "",
-        password: "",
-    })
-    
-    const onLogin = async () => {
-        try {
-            setLoading(true);
-            const reponse = await axios.post("/api/users/login", user);
-            router.push("/");
-        } catch (error: any) {
-            console.log("Login failed", error.message);
-        } finally {
-            setLoading(false);
-        }
-    }
-    
-    const logout = async () => {
-        try {
-            await axios.get("/api/users/logout");
-            router.push("/login");
-        } catch (error: any) {
-            console.log(error.message);
-        }
-    }
-        
-        return (
-            <div className="">
-                <h1>{loading ? "Processing" : "Login"}</h1>
-                <hr />
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
 
-                <label htmlFor="email">email</label>
-                <input 
-                    id="email" 
-                    type="text"
-                    value={user.email}
-                    onChange={(e) => setUser({...user, email: e.target.value})}
-                    placeholder="email"
-                    className="text-black"
-                    />
+  const onLogin = async () => {
+    try {
+      setLoading(true);
+			console.log("calling axios");
+      const response = await axios.post("/api/users/login", user);
+			console.log("pushing");
+			router.push("/study");
+    } catch (error: any) {
+      console.log("Login failed", error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-                <label htmlFor="password">password</label>
-                <input 
-                    id="password" 
-                    type="password"
-                    value={user.password}
-                    onChange={(e) => setUser({...user, password: e.target.value})}
-                    placeholder="password"
-                    className="text-black --input-gradient text-left"
-                    />
-                
-                <button onClick={onLogin}>Login</button>
-                <Link href="/signup">Visit signup page</Link>
-            </div>
-        )
+  const logout = async () => {
+    try {
+      await axios.get("/api/users/logout");
+      router.push("/login");
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
+
+  return (
+    <div className="flex justify-center">
+      <div className="flex gap-[20px] --border rounded-md max-w-[920px] p-6 --form-shadow">
+        <img
+          src="/form-login.jpg"
+          alt="futuristic picture"
+          className="w-1/2 rounded-md object-cover"
+        />
+        <form id="loginForm" noValidate className="w-4/5 flex flex-col items-center">
+          <h1 className="--header-name text-center mb-4 text-3xl font-bold">
+            {loading ? "Processing" : "Login"}
+          </h1>
+          <div className="--form-control">
+            <label htmlFor="email" className="--header-name">email</label>
+            <input
+              id="email"
+              type="email"
+              value={user.email}
+              onChange={(e) => setUser({ ...user, email: e.target.value })}
+              placeholder="Enter email"
+              className="--form-input"
+            />
+            <i className="--icon"></i>
+          </div>
+          <div className="--form-control">
+            <label htmlFor="password" className="--header-name">password</label>
+            <input
+              id="password"
+              type="password"
+              value={user.password}
+              onChange={(e) => setUser({ ...user, password: e.target.value })}
+              placeholder="Enter password"
+              className="text-black --form-input text-left"
+            />
+            <i className="--icon"></i>
+          </div>
+
+          <button
+            onClick={() => { console.log('Button clicked'); onLogin(); }}
+            className="--form-button --gradient-bg font-bold text-white"
+          >
+            Login
+          </button>
+          <span className="mt-16">
+						Don't have an account? {" "}
+						<Link href="/signup" className="--header-name text-offwhite">Click here!</Link>
+					</span>
+					<p className="text-xs mt-4 text-offwhite"><span className="font-bold">Note</span>: there is currently a bug that does not automatically redirect you after signing in. Simply press the signin button again and you will be signed in properly.</p>
+        </form>
+      </div>
+    </div>
+  );
 }

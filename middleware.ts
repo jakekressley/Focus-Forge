@@ -9,11 +9,13 @@ export function middleware(request: NextRequest) {
 
     const token = request.cookies.get('token')?.value || ''
 
+    // wait for cookies request
     // redirect logic based on path and if they have token
     if (isPublicPath && token) {
         return NextResponse.redirect(new URL('/', request.nextUrl))
     }
 
+    // I think the problem is that it is doing this too fast
     if (!isPublicPath && !token) {
         return NextResponse.redirect(new URL('/login', request.nextUrl))
     }
@@ -23,8 +25,8 @@ export function middleware(request: NextRequest) {
 export const config = {
     matcher: [
         '/',
-        '/profile',
-        '/tree',
+        '/tips',
+        '/about',
         '/login',
         '/signup',
         '/verifyemail',
