@@ -17,8 +17,10 @@ export default function SignupPage() {
   const onLogin = async () => {
     try {
       setLoading(true);
-      const reponse = await axios.post("/api/users/login", user);
-      router.push("/");
+			console.log("calling axios");
+      const response = await axios.post("/api/users/login", user);
+			console.log("pushing");
+			router.push("/study");
     } catch (error: any) {
       console.log("Login failed", error.message);
     } finally {
@@ -73,7 +75,7 @@ export default function SignupPage() {
           </div>
 
           <button
-            onClick={onLogin}
+            onClick={() => { console.log('Button clicked'); onLogin(); }}
             className="--form-button --gradient-bg font-bold text-white"
           >
             Login
