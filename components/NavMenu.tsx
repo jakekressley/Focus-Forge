@@ -31,13 +31,13 @@ export default function NavMenu() {
     return (
         <header className="w-full bg-nightblue pt-8 pb-4 --header flex px-40 items-end">
             <span className="text-4xl --header-name font-bold">Focus Forge</span>
-            <nav className="flex text-white gap-6 font-bold items-start ml-auto text-xl">
+            <nav className="flex text-offwhite gap-6 font-bold items-start mx-auto text-xl">
                 <Link href="/" className="">Home</Link>
                 <Link href="/study">Study</Link>
                 <Link href="/about">About</Link>
                 <Link href="/tips">Tips</Link>
-                <Link href="logout" className="--border">Logout</Link>
             </nav>
+            <Link href="logout" className="--outline text-offwhite font-bold text-xl mb-3">Logout</Link>
         </header>
     )
 }

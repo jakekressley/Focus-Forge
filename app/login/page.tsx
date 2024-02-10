@@ -80,10 +80,11 @@ export default function SignupPage() {
           >
             Login
           </button>
-          <span className="mt-20">
+          <span className="mt-16">
 						Don't have an account? {" "}
-						<Link href="/signup" className="--header-name">Click here!</Link>
+						<Link href="/signup" className="--header-name text-offwhite">Click here!</Link>
 					</span>
+					<p className="text-xs mt-4 text-offwhite"><span className="font-bold">Note</span>: there is currently a bug that does not automatically redirect you after signing in. Simply press the signin button again and you will be signed in properly.</p>
         </form>
       </div>
     </div>

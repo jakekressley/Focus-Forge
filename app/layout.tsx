@@ -30,14 +30,12 @@ export default async function RootLayout({
         <title>Focus Forge</title>
       </head>
       <body className="font-orbitron">
-        <SessionProvider session={session}>
-          <main className="bg-nightblue text-white h-screen">
-            <NavMenu />
-            <div className="p-10 h-1">
-              {children}
-            </div>
-          </main>
-        </SessionProvider>
+        <main className="bg-nightblue text-white h-screen">
+          <NavMenu />
+          <div className="p-10 h-1">
+            {children}
+          </div>
+        </main>
       </body>
     </html>
 )}

@@ -100,12 +100,13 @@ export default function SignupPage() {
           >
             Sign up
           </button>
-          <span className="mt-20">
+          <span className="mt-16 text-offwhite">
             Already have an account?{" "}
             <Link href="/login" className="--header-name">
               Click here!
             </Link>
           </span>
+          <p className="text-xs mt-4 text-offwhite"><span className="font-bold">Note</span>: there is currently a bug that does not automatically redirect you to the login page after signing up. Press the above button to be redirected to the login page and log in with the credentials you just created.</p>
         </form>
       </div>
     </div>
