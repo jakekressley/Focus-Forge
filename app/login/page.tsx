@@ -9,7 +9,6 @@ import Form from "@/components/Form";
 export default function SignupPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -23,7 +22,6 @@ export default function SignupPage() {
 			console.log("calling axios");
       const response = await axios.post("/api/users/login", user);
       if (response.data.success) {
-        setIsLoggedIn(true);
         console.log("pushing")
         router.push("/study");
       }

@@ -15,9 +15,11 @@ export async function middleware(request: NextRequest) {
         token: token,
     })
 
+    /*
     response.cookies.set("token", token, {
         httpOnly: true,
     })
+    */
     // wait for cookies request
     // redirect logic based on path and if they have token
     if (isPublicPath && token) {
