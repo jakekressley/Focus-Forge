@@ -14,7 +14,8 @@ export default function SignupPage() {
     password: "",
   });
 
-  const onLogin = async () => {
+  const onLogin = async (event: { preventDefault: () => void; } | undefined) => {
+    // event prevent default causes 405 but without it, local doesn't go through automatically
 		event?.preventDefault();
 
     try {
@@ -79,7 +80,7 @@ export default function SignupPage() {
           </div>
 
           <button
-            onClick={() => { console.log('Button clicked'); onLogin(); }}
+            onClick={onLogin}
             className="--form-button --gradient-bg font-bold text-white"
           >
             Login
