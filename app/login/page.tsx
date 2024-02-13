@@ -9,6 +9,7 @@ import Form from "@/components/Form";
 export default function SignupPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -21,10 +22,11 @@ export default function SignupPage() {
       setLoading(true);
 			console.log("calling axios");
       const response = await axios.post("/api/users/login", user);
-			console.log("pushing");
-			// manually wait for 3 seconds
-			await new Promise((resolve) => setTimeout(resolve, 1000));
-			router.push("/study");
+      if (response.data.success) {
+        setIsLoggedIn(true);
+        console.log("pushing")
+        router.push("/study");
+      }
     } catch (error: any) {
       console.log("Login failed", error.message);
     } finally {
