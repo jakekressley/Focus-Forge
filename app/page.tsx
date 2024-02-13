@@ -14,7 +14,6 @@ export default function Home() {
     const getUserDetails = async () => {
       const res = await axios.get("/api/users/me");
       setExperience(res.data.data.experience);
-      console.log(experience);
     };
 
     getUserDetails();

@@ -15,11 +15,15 @@ export default function SignupPage() {
   });
 
   const onLogin = async () => {
+		event?.preventDefault();
+
     try {
       setLoading(true);
 			console.log("calling axios");
       const response = await axios.post("/api/users/login", user);
 			console.log("pushing");
+			// manually wait for 3 seconds
+			await new Promise((resolve) => setTimeout(resolve, 1000));
 			router.push("/study");
     } catch (error: any) {
       console.log("Login failed", error.message);
