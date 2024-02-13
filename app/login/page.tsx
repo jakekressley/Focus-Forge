@@ -15,7 +15,6 @@ export default function SignupPage() {
   });
 
   const onLogin = async () => {
-		event?.preventDefault();
 
     try {
       setLoading(true);

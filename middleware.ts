@@ -9,11 +9,13 @@ export async function middleware(request: NextRequest) {
 
     const token = await request.cookies.get('token')?.value || ''
 
+    /*
     const response = NextResponse.json({
         message: "Login successful",
         success:true,
         token: token,
     })
+    */
 
     /*
     response.cookies.set("token", token, {
