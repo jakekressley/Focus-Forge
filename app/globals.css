@@ -218,3 +218,7 @@ body {
         width: 100%;
     }
 }
+
+.--tips li {
+  margin-bottom: 5px;
+}

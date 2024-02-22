@@ -3,15 +3,15 @@ import React from "react";
 const page = () => {
   return (
     <div>
-      <h1 className="text-6xl font-bold text-center">Tips for Focus</h1>
-      <div className="grid grid-rows-2 grid-cols-2 gap-y-10">
-        <ul>
+      <div className="flex flex-col gap-6 w-[60%] ml-20 --tips">
+        <ul className="gap-10">
+          <li className="text-3xl mb-2 --header-name font-bold">Staying Focused</li>
           <li>
-            Set Clear Goals: Define what you want to achieve and break it down
+            <strong>Set Clear Goals:</strong> Define what you want to achieve and break it down
             into smaller, manageable tasks.
           </li>
           <li>
-            Use Time Management Techniques: Try techniques like the Pomodoro
+            <strong>Use Time Management Techniques:</strong> Try techniques like the Pomodoro
             Technique or time blocking to stay focused during work sessions. Try
             using Focus Forge's built in Pomodoro Timer in the Study tab!
           </li>
@@ -38,6 +38,7 @@ const page = () => {
           </li>
         </ul>
         <ul>
+        <li className="text-3xl mb-2 --header-name font-bold">Avoiding Burnout</li>
           <li>
             <strong>Set Boundaries:</strong> Establish clear boundaries between
             work and personal life to prevent overwork.
@@ -66,6 +67,7 @@ const page = () => {
         </ul>
         <ul>
           <li>
+          <li className="text-3xl mb-2 --header-name font-bold">Achieving Deep Focus</li>
             <strong>Single Tasking:</strong> Focus on one task at a time to
             maximize concentration and productivity.
           </li>
@@ -88,34 +90,6 @@ const page = () => {
           <li>
             <strong>Eliminate Multitasking:</strong> Avoid multitasking, as it
             can reduce efficiency and diminish the quality of work.
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <strong>Active Listening:</strong> Stay engaged during lectures or
-            study sessions by actively listening and taking notes.
-          </li>
-          <li>
-            <strong>Break Information Into Chunks:</strong> Divide complex
-            topics into smaller, more manageable chunks for easier
-            comprehension.
-          </li>
-          <li>
-            <strong>Use Visualization Techniques:</strong> Visualize concepts or
-            information to aid in understanding and retention.
-          </li>
-          <li>
-            <strong>Regular Review:</strong> Review material regularly to
-            reinforce learning and improve retention.
-          </li>
-          <li>
-            <strong>Teach What You Learn:</strong> Reinforce your understanding
-            of topics by explaining them to others or teaching them.
-          </li>
-          <li>
-            <strong>Practice Retrieval:</strong> Test your knowledge through
-            practice quizzes or recall exercises to strengthen memory and
-            recall.
           </li>
         </ul>
       </div>

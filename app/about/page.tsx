@@ -3,18 +3,16 @@ import React from "react";
 const page = () => {
   return (
     <div>
-      <section id="overview">
-        <h2>Overview</h2>
+      <section id="overview" className="flex flex-col gap-6 text-xl">
+        <h2 className="--header-name text-3xl font-bold">Overview</h2>
         <p>
-          Welcome to Focus Forge, a platform designed to help users improve
+          Welcome to <span className="--header-name font-bold">Focus Forge</span>! a platform designed to help users improve
           focus, productivity, and overall well-being.
         </p>
 
         <p>
-          In today's fast-paced world, distractions abound, making it
-          challenging to stay focused on tasks and goals. Focus Forge aims to
-          address this issue by providing users with tools and resources to
-          enhance their concentration, motivation, and time management skills.
+          Today's fast-paced world can make it challenging to stay focused on tasks and goals. Focus Forge aims to
+          address this issue by providing users with tools and resources to enhance their concentration, motivation, and time management skills.
         </p>
 
         <p>
@@ -25,10 +23,11 @@ const page = () => {
         </p>
 
         <p>
-          Our mission is to empower users to achieve their goals more
-          efficiently and enjoyably by fostering a productive and focused
-          mindset. With Focus Forge, you can take control of your time,
+          With Focus Forge, you can take control of your time,
           maximize your potential, and cultivate habits that lead to success.
+        </p>
+        <p>
+          Future features include a habit tracker, a time management tool, and a to do list.
         </p>
       </section>
     </div>
