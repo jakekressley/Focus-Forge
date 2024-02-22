@@ -6,12 +6,23 @@
 .pnp.js
 .yarn/install-state.gz
 
+# packages
+package.json
+package-lock.json
+
 # testing
 /coverage
 
 # next.js
 /.next/
 /out/
+
+next.config.js
+postcss.config.js
+tailwind.config.ts
+taskActionTypes.js
+taskActions.js
+tsconfig.json
 
 # production
 /build
