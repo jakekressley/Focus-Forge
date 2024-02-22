@@ -9,19 +9,19 @@ export async function middleware(request: NextRequest) {
 
     const token = await request.cookies.get('token')?.value || ''
 
-    /*
+    
     const response = NextResponse.json({
         message: "Login successful",
         success:true,
         token: token,
     })
-    */
+    
 
-    /*
+    
     response.cookies.set("token", token, {
         httpOnly: true,
     })
-    */
+    
     // wait for cookies request
     // redirect logic based on path and if they have token
     if (isPublicPath && token) {
