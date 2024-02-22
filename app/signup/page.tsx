@@ -27,7 +27,7 @@ export default function SignupPage() {
     try {
       const response = await axios.post("/api/users/signup", user);
       console.log("made it through");
-      router.push("/");
+      router.push("/login");
     } catch (error: any) {
       console.log("Signup failed", error.message);
     }
@@ -106,7 +106,6 @@ export default function SignupPage() {
               Click here!
             </Link>
           </span>
-          <p className="text-xs mt-4 text-offwhite"><span className="font-bold">Note</span>: there is currently a bug that does not automatically redirect you to the login page after signing up. Press the above button to be redirected to the login page and log in with the credentials you just created.</p>
         </form>
       </div>
     </div>
