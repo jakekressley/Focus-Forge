@@ -1,22 +1,20 @@
-# FocusForge
-
-![FocusForge Banner](banner.jpg)
+# Focus Forge
 
 ## Overview
 
-FocusForge is a productivity and focus-enhancement web application designed to help users manage their time effectively and stay focused on their tasks and goals. With features like Pomodoro timers, task trackers, educational resources, and personalized progress tracking, FocusForge empowers users to maximize their productivity and achieve their objectives efficiently.
+Focus Forge is a productivity and focus-enhancement web application designed to help users manage their time effectively and stay focused on their tasks and goals. With features like Pomodoro timers, task trackers, educational resources, and personalized progress tracking, FocusForge empowers users to maximize their productivity and achieve their objectives efficiently.
 
 ## Features
 
 - **Pomodoro Timers:** Implement the Pomodoro Technique to break work into intervals, enhancing productivity and focus.
-  
-- **Task Trackers:** Organize tasks and prioritize work to manage time effectively.
-
-- **Educational Resources:** Access a comprehensive library of resources to support learning and skill development.
 
 - **Personalized Progress Tracking:** Store user progress, preferences, and achievements for a personalized and continuous user experience.
 
 - **Authentication:** Enable seamless login and registration with OAuth services (Google, GitHub) for a secure and personalized user experience.
+
+- **Rank and Experience System:** Users earn experience points by completing tasks and staying focused. As they accumulate points, they unlock new ranks, features, and visual enhancements, providing a motivating and engaging experience.
+
+![image](https://github.com/jakekressley/Focus-Forge/assets/110749895/a333d920-71be-434e-be3a-e3b59bee50d3)
 
 
 ## Technologies Used
