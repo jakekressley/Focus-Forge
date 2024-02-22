@@ -17,7 +17,6 @@ package-lock.json
 /.next/
 /out/
 
-next.config.js
 postcss.config.js
 tailwind.config.ts
 taskActionTypes.js
