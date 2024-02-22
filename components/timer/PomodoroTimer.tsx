@@ -13,6 +13,7 @@ import TimerButton from './TimerButton';
 function PomodoroTimer() {
     const [focusTime, setFocusTime] = React.useState(25);
     const [minutes, setMinutes] = useState(focusTime);
+    const [totalMinutesStudied, setTotalMinutesStudied] = useState(0);
     const [shortBreakCounter, setShortBreakCounter] = useState(0);
     const [seconds, setSeconds] = useState(0);
     const [isActive, setIsActive] = useState(false);
@@ -33,6 +34,7 @@ function PomodoroTimer() {
                 } else if (minutes > 0) {
                     setMinutes(minutes - 1);
                     setSeconds(59);
+
                 } else {
                     setIsActive(false);
     
@@ -42,6 +44,7 @@ function PomodoroTimer() {
                             let newShortBreakCounter = shortBreakCounter + 1;
                             setShortBreakCounter(newShortBreakCounter);
                             setTotalSessionCounter(totalSessionCounter + 1);
+
                             if (newShortBreakCounter == longBreakFrequency) {
                                 console.log("condition passed")
                                 setShortBreakCounter(0);
@@ -137,6 +140,8 @@ function PomodoroTimer() {
     // make this a headlessui modal
    const handleSessionEnd = () => {
         console.log("Session ended");
+        const xpToAdd = minutes;
+        handleReset 
     }
 
     //handleReset();

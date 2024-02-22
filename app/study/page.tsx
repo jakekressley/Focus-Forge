@@ -7,12 +7,14 @@ import connectToDatabase from "../../mongo";
 import { ObjectId } from "mongodb";
 import prisma from '@/lib/prisma';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 import TimerButton from '../../components/timer/TimerButton';
 
 
 function PomodoroTimer() {
     const [focusTime, setFocusTime] = React.useState(25);
     const [minutes, setMinutes] = useState(focusTime);
+    const [totalMinutesStudied, setTotalMinutesStudied] = useState(0);
     const [shortBreakCounter, setShortBreakCounter] = useState(0);
     const [seconds, setSeconds] = useState(0);
     const [isActive, setIsActive] = useState(false);
@@ -33,6 +35,10 @@ function PomodoroTimer() {
                 } else if (minutes > 0) {
                     setMinutes(minutes - 1);
                     setSeconds(59);
+
+                    if (!isBreak) {
+                        setTotalMinutesStudied(totalMinutesStudied + 1);
+                    }
                 } else {
                     setIsActive(false);
     
@@ -61,7 +67,7 @@ function PomodoroTimer() {
                         }
                     }
                 }
-            }, 1000);
+            }, 1);
         }
     
         return () => clearInterval(interval);
@@ -122,6 +128,7 @@ function PomodoroTimer() {
         setMinutes(focusTime);
         setShortBreakCounter(0);
         setSeconds(0);
+        setTotalMinutesStudied(0);
     };
 
     const handleForward = () => {
@@ -134,12 +141,35 @@ function PomodoroTimer() {
     }, [focusTime, shortBreakTime])
 
 
-    // make this a headlessui modal
-   const handleSessionEnd = () => {
-        console.log("Session ended");
-    }
+    const [experience, setExperience] = useState(0);
 
-    //handleReset();
+    useEffect(() => {
+      const getUserDetails = async () => {
+        const res = await axios.get("/api/users/me");
+        setExperience(res.data.data.experience);
+      };
+  
+      getUserDetails();
+    }, []);
+
+    // make this a headlessui modal
+   const handleSessionEnd = async () => {
+        console.log("Session ended");
+        try {
+            const res = await axios.put("/api/users/me", { experience: experience + totalMinutesStudied });
+            if (res.data.success) {
+              console.log("User's experience updated successfully");
+              setExperience(experience + totalMinutesStudied);
+              handleReset();
+            } else {
+              console.log("Failed to update user's experience", res.data.error);
+            }
+          } catch (error: any) {
+            console.log("Failed to update user's experience", error.message);
+          }
+        };
+
+        
 
     return (
         <div className='flex flex-col items-center'>
@@ -191,11 +221,12 @@ function PomodoroTimer() {
                     <TimerButton label="Reset" onClick={handleReset} size="large"></TimerButton>
                 </div>
                 <div>
-                    <TimerButton label="End session" size="large"></TimerButton>
+                    <TimerButton label="End session" size="large" onClick={handleSessionEnd}></TimerButton>
                 </div>        
             </div>
             <p>Short Break Counter: {shortBreakCounter}</p>
             <p>Total Session Counter: {totalSessionCounter}</p>
+            <p>Total Minutes Studied: {totalMinutesStudied}</p>
         </div>
     )
 }

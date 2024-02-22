@@ -21,3 +21,31 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({error: error.message}, {status: 400})
     }
 }
+
+export async function PUT(request: NextRequest) {
+    try {
+      // Extract user ID from auth token
+      const userId = await getDataFromToken(request);
+  
+      // Parse the request body to get the new experience
+      const { experience } = await request.json();
+  
+      // Find the user in the db and update their experience
+      const user = await User.findOneAndUpdate(
+        { _id: userId },
+        { experience },
+        { new: true, select: "-password" }
+      );
+  
+      if (!user) {
+        return NextResponse.json({ error: "User not found" }, { status: 404 });
+      }
+  
+      return NextResponse.json({
+        message: "User's experience updated successfully",
+        data: user,
+      });
+    } catch (error: any) {
+      return NextResponse.json({ error: error.message }, { status: 400 });
+    }
+  }
