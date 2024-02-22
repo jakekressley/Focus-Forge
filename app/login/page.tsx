@@ -21,7 +21,7 @@ export default function SignupPage() {
     try {
       setLoading(true);
 			console.log("calling axios");
-      //const response = await axios.post("/api/users/login", user);
+      const response = await axios.post("/api/users/login", user);
       console.log("pushing")
       router.push("/study");
     } catch (error: any) {
