@@ -4,7 +4,7 @@
 
 Focus Forge is a productivity and focus-enhancement web application designed to help users manage their time effectively and stay focused on their tasks and goals. With features like Pomodoro timers, task trackers, educational resources, and personalized progress tracking, FocusForge empowers users to maximize their productivity and achieve their objectives efficiently.
 
-🚀 **Check it out:** [www.focusforge.lol](www.focusforge.lol)
+🚀 **Check it out:** [www.focusforge.lol](https://focusforge.lol)
 
 ## Features
 
