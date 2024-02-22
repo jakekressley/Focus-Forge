@@ -67,7 +67,7 @@ function PomodoroTimer() {
                         }
                     }
                 }
-            }, 1);
+            }, 1000);
         }
     
         return () => clearInterval(interval);

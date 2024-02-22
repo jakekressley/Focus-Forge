@@ -48,6 +48,24 @@ export default function Home() {
     }
   };
 
+  const getProgressBarColor = (xp: number) => {
+    if (xp < 500) {
+      return "bg-red-500";
+    } else if (xp < 1500) {
+      return "bg-pink-500";
+    } else if (xp < 3500) {
+      return "bg-green-700";
+    } else if (xp < 6000) {
+      return "bg-blue-500";
+    } else if (xp < 9000) {
+      return "bg-yellow-500";
+    } else if (xp < 12000) {
+      return "bg-gray-300";
+    } else {
+      return "--gradient-bg";
+    }
+  }
+
   const getRankProgressPercent = (xp: number) => {
     if (xp < 500) {
       return (xp / 500) * 100;
@@ -74,39 +92,43 @@ export default function Home() {
     <>
       <div className="flex justify-evenly">
         <div className="w-[50%]">
-          <div className="space-y-4">
+          <div>
             <h2 className="text-3xl font-bold mb-4 text-center --header-name">
               Progress
             </h2>
-            <h3 className="text-lg flex items-center justify-center">
-              Current Rank:
-              {xp < 500 ? (
-                <span className={`${rankStyles} ${red}`}>Red</span>
-              ) : xp < 1500 ? (
-                <span className={`${rankStyles} ${pink}`}>Pink</span>
-              ) : xp < 3500 ? (
-                <span className={`${rankStyles} ${green}`}>Green</span>
-              ) : xp < 6000 ? (
-                <span className={`${rankStyles} ${blue}`}>Blue</span>
-              ) : xp < 9000 ? (
-                <span className={`${rankStyles} ${copper}`}>Copper</span>
-              ) : xp < 12000 ? (
-                <span className={`${rankStyles} ${silver}`}>Silver</span>
-              ) : (
-                <span className={`${rankStyles} ${gold}`}>Gold</span>
-              )}
+            <h3 className="text-md flex items-end justify-center gap-10 mr-32">
+              <span>Current Rank:</span>
+              <div>
+                {xp < 500 ? (
+                  <span className={`${rankStyles} ${red}`}>Red</span>
+                ) : xp < 1500 ? (
+                  <span className={`${rankStyles} ${pink}`}>Pink</span>
+                ) : xp < 3500 ? (
+                  <span className={`${rankStyles} ${green}`}>Green</span>
+                ) : xp < 6000 ? (
+                  <span className={`${rankStyles} ${blue}`}>Blue</span>
+                ) : xp < 9000 ? (
+                  <span className={`${rankStyles} ${copper}`}>Copper</span>
+                ) : xp < 12000 ? (
+                  <span className={`${rankStyles} ${silver}`}>Silver</span>
+                ) : (
+                  <span className={`${rankStyles} ${gold}`}>Gold</span>
+                )}
+              </div>
             </h3>
-            <h3 className="text-lg mb-2">Total Experience: {experience}</h3>
-            <h3 className="text-lg mb-2">
-              Rank Progress: {rankProgressString}
-            </h3>
-            <div className="h-4 w-[25rem] bg-transparent rounded --border">
-              <div
-                className="h-full --gradient-bg rounded transition-all duration-500 ease-in-out"
-                style={{ width: `${rankProgressPercent}%` }}
-              ></div>
+            <div className="text-3xl mt-32 space-y-6 flex flex-col">
+              <h3 className="mb-2">Total Experience: {experience}</h3>
+              <h3 className="mb-2">
+                Rank Progress: {rankProgressString}
+              </h3>
+              <div className="h-10 w-[25rem] bg-transparent rounded-xl --border">
+                <div
+                  className={`h-full rounded-xl transition-all duration-500 ease-in-out ${getProgressBarColor(xp)}`}
+                  style={{ width: `${rankProgressPercent}%` }}
+                ></div>
+              </div>
+              <h3>Total Hours Studied: {hours} hours</h3>
             </div>
-            <h3>Total Hours Studied: {hours} hours</h3>
           </div>
         </div>
         <section className="flex flex-col justify-center items-center">
