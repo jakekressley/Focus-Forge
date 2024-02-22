@@ -5,7 +5,7 @@ export async function middleware(request: NextRequest) {
     const path = request.nextUrl.pathname;
 
     // define paths that are public (accessible without authentication)
-    const isPublicPath = path === '/login' || path === '/signup' || path === '/verifyemail'
+    const isPublicPath = path === '/login' || path === '/signup' || path === '/verifyemail' || path === '/study'
 
     const token = await request.cookies.get('token')?.value || ''
 
@@ -25,7 +25,7 @@ export async function middleware(request: NextRequest) {
     // wait for cookies request
     // redirect logic based on path and if they have token
     if (isPublicPath && token) {
-        return NextResponse.redirect(new URL('/', request.nextUrl))
+        return NextResponse.redirect(new URL('/study', request.nextUrl))
     }
 
     // I think the problem is that it is doing this too fast
@@ -37,9 +37,9 @@ export async function middleware(request: NextRequest) {
 export const config = {
     matcher: [
         '/',
-        '/tips',
-        '/about',
-        '/login',
+        //'/tips',
+        //'/about',
+        //'/login',
         '/signup',
         '/verifyemail',
         '/study',
