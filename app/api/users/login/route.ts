@@ -8,14 +8,10 @@ import jwt from "jsonwebtoken";
 export async function POST(request: NextRequest) {
     connect();
     try {
-        console.log("enters POST")
         const reqBody = await request.json()
-        console.log("through reqBody");
         const {email, password} = reqBody;
 
         const user = await User.findOne({email})
-
-        console.log("through user");
 
         if (!user) {
             return NextResponse.json({error: "User does not exist"}, {status: 400})
@@ -47,7 +43,6 @@ export async function POST(request: NextRequest) {
         response.cookies.set("token", token, {
             httpOnly: true,
         })
-        console.log("made it through");
         return response;
     } catch (error: any) {
         return NextResponse.json({error: error.message}, {status: 500})
