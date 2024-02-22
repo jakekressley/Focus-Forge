@@ -19,7 +19,7 @@ const config: Config = {
         'lightgray': '#6a6b6ebf',
       },
       backgroundImage: theme => ({
-        'gradient-to-b': 'linear-gradient(to bottom, var(--tw-gradient-stops))',
+        'gradient-to-b': 'linear-gradient(to bottom, var(--tw-gradient-stops))'
      })
     }
   },
