@@ -15,12 +15,6 @@
 /.next/
 /out/
 
-postcss.config.js
-tailwind.config.ts
-taskActionTypes.js
-taskActions.js
-tsconfig.json
-
 # production
 /build
 
