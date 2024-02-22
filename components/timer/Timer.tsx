@@ -19,7 +19,7 @@ const Timer = () => {
         if (isActive) {
             interval = setInterval(() => {
                 setTotalSeconds(prevTotalSeconds => prevTotalSeconds + 1);
-            }, 1);
+            }, 1000);
         }
 
         return () => {
