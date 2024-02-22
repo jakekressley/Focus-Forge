@@ -2,11 +2,16 @@
 
 import { useState, useEffect } from "react";
 import { PomodoroTypes } from "@/types";
+import axios from "axios";
 import TimerButton from "./TimerButton";
 
 const Timer = () => {
     const [totalSeconds, setTotalSeconds] = useState(0);
     const [isActive, setIsActive] = useState(false);
+    const seconds = totalSeconds % 60;
+    const minutes = Math.floor((totalSeconds / 60) % 60);
+    const hours = Math.floor(totalSeconds / 3600);
+    const [experience, setExperience] = useState(0);
 
     useEffect(() => {
         let interval: NodeJS.Timeout | null = null;
@@ -14,7 +19,7 @@ const Timer = () => {
         if (isActive) {
             interval = setInterval(() => {
                 setTotalSeconds(prevTotalSeconds => prevTotalSeconds + 1);
-            }, 1000);
+            }, 1);
         }
 
         return () => {
@@ -24,9 +29,15 @@ const Timer = () => {
         };
     }, [isActive]);
 
-    const seconds = totalSeconds % 60;
-    const minutes = Math.floor((totalSeconds / 60) % 60);
-    const hours = Math.floor(totalSeconds / 3600);
+
+    useEffect(() => {
+      const getUserDetails = async () => {
+        const res = await axios.get("/api/users/me");
+        setExperience(res.data.data.experience);
+      };
+  
+      getUserDetails();
+    }, []);
 
     const handleStart = () => {
         setIsActive(true);
@@ -40,6 +51,22 @@ const Timer = () => {
         setIsActive(false);
         setTotalSeconds(0);
     }
+
+    const handleSessionEnd = async () => {
+        console.log("Session ended");
+        try {
+            const res = await axios.put("/api/users/me", { experience: experience + Math.floor(totalSeconds / 60)});
+            if (res.data.success) {
+              console.log("User's experience updated successfully");
+              setExperience(experience + Math.floor(totalSeconds / 60));
+              handleReset();
+            } else {
+              console.log("Failed to update user's experience", res.data.error);
+            }
+          } catch (error: any) {
+            console.log("Failed to update user's experience", error.message);
+          }
+        };
 
     return (
         <div className="flex flex-col items-center justify-center">
@@ -61,7 +88,7 @@ const Timer = () => {
                 <TimerButton label="Reset" onClick={handleReset} size="large"></TimerButton>
             </div>
             <div className="m-4">
-                <TimerButton label="End Session" size="large"></TimerButton>
+                <TimerButton label="End Session" size="large" onClick={handleSessionEnd}></TimerButton>
             </div>
         </div>
     );
