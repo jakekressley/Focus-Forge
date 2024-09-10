@@ -21,7 +21,6 @@ Focus Forge is a productivity and focus-enhancement web application designed to 
 
 ## Technologies Used
 - **Frontend:**
-  - React.js
   - Next.js
   - TypeScript
   - Tailwind CSS
